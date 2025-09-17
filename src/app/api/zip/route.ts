@@ -7,6 +7,11 @@ import crypto from "crypto";
 const cache = new NodeCache({ stdTTL: 3600 }); // cache for 1 hour
 
 export async function POST(req: NextRequest) {
+    // const auth = req.headers.get("authorization");
+
+    // if (!auth || auth !== `Bearer ${process.env.ZIP_API_TOKEN}`) {
+    //   return new Response("Unauthorized", { status: 401 });
+    // }
   const { files } = (await req.json()) as {
     files: { name: string; url: string }[];
   };
